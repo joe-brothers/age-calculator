@@ -22,6 +22,7 @@ jobs:
           node-version: 16
           # cache: 'npm'
 
+      - run: yarn install
       - run: yarn run build
         env:
           CI: false
