@@ -1,6 +1,7 @@
 {
   "name": "age-calculator",
   "private": true,
+  "homepage": "https://joe-brothers.github.io/age-calculator",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
