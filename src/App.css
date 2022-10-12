@@ -1,0 +1,36 @@
+body, p {
+  margin: 0;
+}
+
+.App {
+  padding: 20px;
+}
+
+.container-calculators {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-calculator {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.button-add {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.button-remove {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+}
