@@ -75,7 +75,7 @@ function App() {
 
   return (
     <div className="App">
-      <h2>만나이 세는나이 (국제나이 한국나이) 계산기</h2>
+      <h2>만나이/연나이/세는나이 (국제나이/한국나이) 계산기</h2>
       <section className="container-calculators">
         {data.map(({ id, dateBirth, dateAnchor }) => (
           <Calculator

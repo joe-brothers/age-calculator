@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import moment from "moment";
 
 export const Calculator = ({
   dateBirth,
@@ -41,10 +40,18 @@ export const Calculator = ({
       </label>
       <p>
         만나이(국제나이) :{" "}
-        {!ageInternational || ageInternational < 0 ? (
+        {isNaN(ageInternational) || ageInternational < 0 ? (
           <span>올바른 날짜를 입력해주세요.</span>
         ) : (
           <span>{ageInternational}세</span>
+        )}
+      </p>
+      <p>
+        연나이 :{" "}
+        {!ageKorean || ageKorean - 1 < 0 ? (
+          <span>올바른 날짜를 입력해주세요.</span>
+        ) : (
+          <span>{ageKorean - 1}세</span>
         )}
       </p>
       <p>
