@@ -97,6 +97,12 @@ function App() {
       <button className="button-add" onClick={onClickAdd}>
         추가
       </button>
+      <p className="made-by">
+        Made by <img className="logo" src="src/assets/logo.png" />
+        <a href="https://joe-brothers.com/" target="_blank">
+          Joe Brothers, Inc.
+        </a>
+      </p>
     </div>
   );
 }
