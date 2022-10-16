@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Calculator } from "./components/Calculator";
 import moment from "moment";
 import "./App.css";
+import logoImageUrl from './assets/logo.png';
 
 function App() {
   const dateDefault = {
@@ -98,7 +99,7 @@ function App() {
         추가
       </button>
       <p className="made-by">
-        Made by <img className="logo" src="src/assets/logo.png" />
+        Made by <img className="logo" src={ logoImageUrl } />
         <a href="https://joe-brothers.com/" target="_blank">
           Joe Brothers, Inc.
         </a>
