@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Paper, IconButton } from "@mui/material";
+import { Delete } from "@mui/icons-material";
 
 export const Calculator = ({
   dateBirth,
@@ -19,10 +21,21 @@ export const Calculator = ({
   const { t } = useTranslation();
 
   return (
-    <article className="form-calculator">
-      <button className="button-remove" onClick={onClickRemove}>
+    <Paper
+      elevation={5}
+      style={{ borderRadius: 10 }}
+      className="form-calculator"
+    >
+      <IconButton
+        aria-label="delete"
+        onClick={onClickRemove}
+        sx={{ position: "absolute", top: 1, right: 1 }}
+      >
+        <Delete fontSize="inherit" />
+      </IconButton>
+      {/* <button className="button-remove" onClick={onClickRemove}>
         X
-      </button>
+      </button> */}
       <label>
         {t("dateBirth")}
         <input
@@ -74,6 +87,6 @@ export const Calculator = ({
           </span>
         )}
       </p>
-    </article>
+    </Paper>
   );
 };
