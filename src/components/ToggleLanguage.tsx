@@ -3,27 +3,28 @@ import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import i18next from "i18next";
 
 export const ToggleLanguage = () => {
-  const [alignment, setAlignment] = React.useState("kr");
+  const [selected, setSelected] = React.useState(i18next.language);
+  console.log(i18next.language)
 
   const handleChange = (
     event: React.MouseEvent<HTMLElement>,
-    newAlignment: string
+    selected: string
   ) => {
-    setAlignment(newAlignment);
-    i18next.changeLanguage(newAlignment);
+    setSelected(selected);
+    i18next.changeLanguage(selected);
   };
 
   return (
     <ToggleButtonGroup
-      value={alignment}
+      value={selected}
       exclusive
       onChange={handleChange}
       aria-label="language"
     >
-      <ToggleButton value="kr" aria-label="korean">
+      <ToggleButton value="ko-KR" aria-label="korean">
         🇰🇷
       </ToggleButton>
-      <ToggleButton value="en" aria-label="english">
+      <ToggleButton value="en-US" aria-label="english">
         🇺🇸
       </ToggleButton>
     </ToggleButtonGroup>
