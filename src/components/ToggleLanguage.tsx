@@ -4,7 +4,6 @@ import i18next from "i18next";
 
 export const ToggleLanguage = () => {
   const [selected, setSelected] = React.useState(i18next.language);
-  console.log(i18next.language)
 
   const handleChange = (
     event: React.MouseEvent<HTMLElement>,

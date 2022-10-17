@@ -16,6 +16,7 @@ const resources = {
       ageKorean: "Korean Age",
       add: "Add",
       old: " years old",
+      wrongDate: "Wrong Date",
     },
   },
   "ko-KR": {
@@ -28,6 +29,7 @@ const resources = {
       ageKorean: "세는나이(한국나이)",
       add: "추가",
       old: "세",
+      wrongDate: "올바른 날짜를 입력해주세요.",
     },
   },
 };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import { Paper, IconButton } from "@mui/material";
 import { Delete } from "@mui/icons-material";
@@ -20,6 +20,23 @@ export const Calculator = ({
 }) => {
   const { t } = useTranslation();
 
+  const isWrongDate = () => {
+    const [yearBirth, monthBirth, dayBirth] = dateBirth.split("-").map(Number);
+    const [yearAnchor, monthAnchor, dayAnchor] = dateAnchor
+      .split("-")
+      .map(Number);
+
+    if (yearBirth > yearAnchor) return true;
+    else if (yearBirth === yearAnchor && monthBirth > monthAnchor) return true;
+    else if (
+      yearBirth === yearAnchor &&
+      monthBirth === monthAnchor &&
+      dayBirth > dayAnchor
+    )
+      return true;
+    return false;
+  };
+
   return (
     <Paper
       elevation={5}
@@ -33,9 +50,6 @@ export const Calculator = ({
       >
         <Delete fontSize="inherit" />
       </IconButton>
-      {/* <button className="button-remove" onClick={onClickRemove}>
-        X
-      </button> */}
       <label>
         {t("dateBirth")}
         <input
@@ -56,8 +70,8 @@ export const Calculator = ({
       </label>
       <p>
         {t("ageInternational")} :{" "}
-        {isNaN(ageInternational) || ageInternational < 0 ? (
-          <span>올바른 날짜를 입력해주세요.</span>
+        {isWrongDate() ? (
+          <span>{t("wrongDate")}</span>
         ) : (
           <span>
             {ageInternational}
@@ -67,8 +81,8 @@ export const Calculator = ({
       </p>
       <p>
         {t("ageYear")} :{" "}
-        {!ageKorean || ageKorean - 1 < 0 ? (
-          <span>올바른 날짜를 입력해주세요.</span>
+        {isWrongDate() ? (
+          <span>{t("wrongDate")}</span>
         ) : (
           <span>
             {ageKorean - 1}
@@ -78,8 +92,8 @@ export const Calculator = ({
       </p>
       <p>
         {t("ageKorean")} :{" "}
-        {!ageKorean || ageKorean < 0 ? (
-          <span>올바른 날짜를 입력해주세요.</span>
+        {isWrongDate() ? (
+          <span>{t("wrongDate")}</span>
         ) : (
           <span>
             {ageKorean}
