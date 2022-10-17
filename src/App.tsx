@@ -1,10 +1,14 @@
 import React, { useState } from "react";
-import { Calculator } from "./components/Calculator";
 import moment from "moment";
+import { Calculator } from "./components/Calculator";
+import logoImageUrl from "./assets/logo.png";
 import "./App.css";
-import logoImageUrl from './assets/logo.png';
+import { useTranslation } from "react-i18next";
+import { ToggleLanguage } from "./components/ToggleLanguage";
 
 function App() {
+  const { t } = useTranslation();
+  
   const dateDefault = {
     dateBirth: "1990-01-01",
     dateAnchor: moment(new Date()).format("YYYY-MM-DD"),
@@ -76,7 +80,8 @@ function App() {
 
   return (
     <div className="App">
-      <h2>만나이/연나이/세는나이 (국제나이/한국나이) 계산기</h2>
+      <ToggleLanguage />
+      <h2>{t("title")}</h2>
       <section className="container-calculators">
         {data.map(({ id, dateBirth, dateAnchor }) => (
           <Calculator
@@ -96,10 +101,10 @@ function App() {
         ))}
       </section>
       <button className="button-add" onClick={onClickAdd}>
-        추가
+        {t("add")}
       </button>
       <p className="made-by">
-        Made by <img className="logo" src={ logoImageUrl } />
+        Made by <img className="logo" src={logoImageUrl} />
         <a href="https://joe-brothers.com/" target="_blank">
           Joe Brothers, Inc.
         </a>

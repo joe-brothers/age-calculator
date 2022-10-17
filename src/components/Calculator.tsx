@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export const Calculator = ({
   dateBirth,
@@ -15,13 +16,15 @@ export const Calculator = ({
   onClickRemove: () => void;
   onChangeDate: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) => {
+  const { t } = useTranslation();
+
   return (
     <article className="form-calculator">
       <button className="button-remove" onClick={onClickRemove}>
         X
       </button>
       <label>
-        생년월일
+        {t("dateBirth")}
         <input
           type="date"
           name="dateBirth"
@@ -30,7 +33,7 @@ export const Calculator = ({
         />
       </label>
       <label>
-        기준날짜
+        {t("dateAnchor")}
         <input
           type="date"
           name="dateAnchor"
@@ -39,27 +42,36 @@ export const Calculator = ({
         />
       </label>
       <p>
-        만나이(국제나이) :{" "}
+        {t("ageInternational")} :{" "}
         {isNaN(ageInternational) || ageInternational < 0 ? (
           <span>올바른 날짜를 입력해주세요.</span>
         ) : (
-          <span>{ageInternational}세</span>
+          <span>
+            {ageInternational}
+            {t("old")}
+          </span>
         )}
       </p>
       <p>
-        연나이 :{" "}
+        {t("ageYear")} :{" "}
         {!ageKorean || ageKorean - 1 < 0 ? (
           <span>올바른 날짜를 입력해주세요.</span>
         ) : (
-          <span>{ageKorean - 1}세</span>
+          <span>
+            {ageKorean - 1}
+            {t("old")}
+          </span>
         )}
       </p>
       <p>
-        세는나이(한국나이) :{" "}
+        {t("ageKorean")} :{" "}
         {!ageKorean || ageKorean < 0 ? (
           <span>올바른 날짜를 입력해주세요.</span>
         ) : (
-          <span>{ageKorean}세</span>
+          <span>
+            {ageKorean}
+            {t("old")}
+          </span>
         )}
       </p>
     </article>
