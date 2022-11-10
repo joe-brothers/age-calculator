@@ -8,7 +8,7 @@ import logoImageUrl from "./assets/logo.png";
 import "./App.css";
 
 function App() {
-  const { t } = useTranslation();
+  const { t: translate } = useTranslation();
 
   const dateDefault = {
     dateBirth: "1990-01-01",
@@ -82,7 +82,7 @@ function App() {
   return (
     <div className="App">
       <ToggleLanguage />
-      <h2>{t("title")}</h2>
+      <h2>{translate("title")}</h2>
       <section className="container-calculators">
         {data.map(({ id, dateBirth, dateAnchor }) => (
           <Calculator
@@ -107,7 +107,7 @@ function App() {
         style={{ marginTop: 20 }}
         onClick={onClickAdd}
       >
-        {t("add")}
+        {translate("add")}
       </Button>
       <p className="made-by">
         Made by <img className="logo" src={logoImageUrl} />

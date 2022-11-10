@@ -18,7 +18,7 @@ export const Calculator = ({
   onClickRemove: () => void;
   onChangeDate: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) => {
-  const { t } = useTranslation();
+  const { t: translate } = useTranslation();
 
   const isWrongDate = () => {
     const [yearBirth, monthBirth, dayBirth] = dateBirth.split("-").map(Number);
@@ -51,7 +51,7 @@ export const Calculator = ({
         <Delete fontSize="inherit" />
       </IconButton>
       <label>
-        {t("dateBirth")}
+        {translate("dateBirth")}
         <input
           type="date"
           name="dateBirth"
@@ -60,7 +60,7 @@ export const Calculator = ({
         />
       </label>
       <label>
-        {t("dateAnchor")}
+        {translate("dateAnchor")}
         <input
           type="date"
           name="dateAnchor"
@@ -69,35 +69,35 @@ export const Calculator = ({
         />
       </label>
       <p>
-        {t("ageInternational")} :{" "}
+        {translate("ageInternational")} :{" "}
         {isWrongDate() ? (
-          <span>{t("wrongDate")}</span>
+          <span>{translate("wrongDate")}</span>
         ) : (
           <span>
             {ageInternational}
-            {t("old")}
+            {translate("old")}
           </span>
         )}
       </p>
       <p>
-        {t("ageYear")} :{" "}
+        {translate("ageYear")} :{" "}
         {isWrongDate() ? (
-          <span>{t("wrongDate")}</span>
+          <span>{translate("wrongDate")}</span>
         ) : (
           <span>
             {ageKorean - 1}
-            {t("old")}
+            {translate("old")}
           </span>
         )}
       </p>
       <p>
-        {t("ageKorean")} :{" "}
+        {translate("ageKorean")} :{" "}
         {isWrongDate() ? (
-          <span>{t("wrongDate")}</span>
+          <span>{translate("wrongDate")}</span>
         ) : (
           <span>
             {ageKorean}
-            {t("old")}
+            {translate("old")}
           </span>
         )}
       </p>
