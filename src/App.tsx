@@ -11,14 +11,14 @@ import {
   TelegramShareButton,
   TwitterShareButton,
   WhatsappShareButton,
-} from "react-share";
+} from "next-share";
 import {
   FacebookIcon,
   LineIcon,
   TelegramIcon,
   TwitterIcon,
   WhatsappIcon,
-} from "react-share";
+} from "next-share";
 
 const URL = "https://joe-brothers.com/age-calculator/";
 
