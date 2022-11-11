@@ -15,10 +15,10 @@ export const Calculator = ({
   const { t: translate } = useTranslation();
 
   const [dateBirth, setDateBirth] = React.useState<Dayjs | null>(
-    dayjs("1990-01-014")
+    dayjs("1990-01-01")
   );
   const [dateAnchor, setDateAnchor] = React.useState<Dayjs | null>(
-    dayjs("2014-08-18T21:11:54")
+    dayjs(new Date())
   );
   const onChangeDateBirth = (newValue: Dayjs | null) => {
     setDateBirth(newValue);
