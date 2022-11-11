@@ -20,9 +20,9 @@ import {
   WhatsappIcon,
 } from "next-share";
 
+const SHARE_URL = "https://joe-brothers.com/age-calculator/";
 
 function App() {
-  const URL = "https://joe-brothers.com/age-calculator/";
   const { t: translate } = useTranslation();
   const [nextId, setNextId] = useState(1);
   const [data, setData] = useState([
@@ -64,19 +64,19 @@ function App() {
         {translate("add")}
       </Button>
       <Stack direction="row" spacing={1} justifyContent="center">
-        <TwitterShareButton url={URL}>
+        <TwitterShareButton url={SHARE_URL}>
           <TwitterIcon size={32} round={true} />
         </TwitterShareButton>
-        <FacebookShareButton url={URL}>
+        <FacebookShareButton url={SHARE_URL}>
           <FacebookIcon size={32} round={true} />
         </FacebookShareButton>
-        <LineShareButton url={URL}>
+        <LineShareButton url={SHARE_URL}>
           <LineIcon size={32} round={true} />
         </LineShareButton>
-        <WhatsappShareButton url={URL}>
+        <WhatsappShareButton url={SHARE_URL}>
           <WhatsappIcon size={32} round={true} />
         </WhatsappShareButton>
-        <TelegramShareButton url={URL}>
+        <TelegramShareButton url={SHARE_URL}>
           <TelegramIcon size={32} round={true} />
         </TelegramShareButton>
       </Stack>
