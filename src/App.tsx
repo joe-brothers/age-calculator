@@ -1,10 +1,26 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Button } from "@mui/material";
+import { Button, Stack } from "@mui/material";
 import { Calculator } from "./components/Calculator";
 import { ToggleLanguage } from "./components/ToggleLanguage";
 import logoImageUrl from "./assets/logo.png";
 import "./App.css";
+import {
+  FacebookShareButton,
+  LineShareButton,
+  TelegramShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+} from "react-share";
+import {
+  FacebookIcon,
+  LineIcon,
+  TelegramIcon,
+  TwitterIcon,
+  WhatsappIcon,
+} from "react-share";
+
+const URL = "https://joe-brothers.com/age-calculator/";
 
 function App() {
   const { t: translate } = useTranslation();
@@ -48,6 +64,23 @@ function App() {
       >
         {translate("add")}
       </Button>
+      <Stack direction="row" spacing={1} justifyContent="center">
+        <TwitterShareButton url={URL}>
+          <TwitterIcon size={32} round={true} />
+        </TwitterShareButton>
+        <FacebookShareButton url={URL}>
+          <FacebookIcon size={32} round={true} />
+        </FacebookShareButton>
+        <LineShareButton url={URL}>
+          <LineIcon size={32} round={true} />
+        </LineShareButton>
+        <WhatsappShareButton url={URL}>
+          <WhatsappIcon size={32} round={true} />
+        </WhatsappShareButton>
+        <TelegramShareButton url={URL}>
+          <TelegramIcon size={32} round={true} />
+        </TelegramShareButton>
+      </Stack>
       <p className="made-by">
         Made by <img className="logo" src={logoImageUrl} />
         <a href="https://joe-brothers.com/" target="_blank">
