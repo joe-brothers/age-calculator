@@ -1,4 +1,3 @@
-import moment from "moment";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@mui/material";
@@ -27,21 +26,6 @@ function App() {
       return;
     }
     setData(data.filter((val) => val.id !== id));
-  };
-
-  const onChangeDate = (e: React.ChangeEvent<HTMLInputElement>, id: number) => {
-    let newData = data.map((val) => {
-      if (val.id === id) {
-        return {
-          ...val,
-          [e.target.name]: moment(new Date(e.target.value)).format(
-            "YYYY-MM-DD"
-          ),
-        };
-      }
-      return val;
-    });
-    setData(newData);
   };
 
   return (
