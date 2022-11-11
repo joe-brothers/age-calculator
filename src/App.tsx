@@ -20,11 +20,10 @@ import {
   WhatsappIcon,
 } from "next-share";
 
-const URL = "https://joe-brothers.com/age-calculator/";
 
 function App() {
+  const URL = "https://joe-brothers.com/age-calculator/";
   const { t: translate } = useTranslation();
-
   const [nextId, setNextId] = useState(1);
   const [data, setData] = useState([
     {
