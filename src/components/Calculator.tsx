@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Paper, IconButton, TextField, Typography } from "@mui/material";
+import { Paper, IconButton, TextField, Typography, Stack } from "@mui/material";
 import { Delete } from "@mui/icons-material";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -41,11 +41,7 @@ export const Calculator = ({
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <Paper
-        elevation={5}
-        style={{ borderRadius: 10 }}
-        className="form-calculator"
-      >
+      <Paper elevation={5} sx={{ position: "relative", borderRadius: 3, p: 2 }}>
         <IconButton
           aria-label="delete"
           onClick={onClickRemove}
@@ -53,59 +49,65 @@ export const Calculator = ({
         >
           <Delete fontSize="inherit" />
         </IconButton>
-        <Typography>{translate("dateBirth")}</Typography>
-        <DesktopDatePicker
-          inputFormat="YYYY/MM/DD"
-          value={dateBirth}
-          onChange={onChangeDateBirth}
-          renderInput={(params) => <TextField {...params} />}
-        />
-        <Typography>{translate("dateAnchor")}</Typography>
-        <DesktopDatePicker
-          inputFormat="YYYY/MM/DD"
-          value={dateAnchor}
-          onChange={onChangeDateAnchor}
-          renderInput={(params) => <TextField {...params} />}
-        />
-        <Typography>
-          {translate("ageInternational")} :{" "}
-          {isWrongDate() || isDateInvalid() ? (
-            <span>{translate("wrongDate")}</span>
-          ) : (
-            <span>
-              {Number(dayjs(dateAnchor).format("YYYY")) -
-                Number(dayjs(dateBirth).format("YYYY")) +
-                Number(isBirthdayPassed()) -
-                1}
-              {translate("old")}
-            </span>
-          )}
-        </Typography>
-        <Typography>
-          {translate("ageYear")} :{" "}
-          {isWrongDate() || isDateInvalid() ? (
-            <span>{translate("wrongDate")}</span>
-          ) : (
-            <span>
-              {Number(dayjs(dateAnchor).format("YYYY")) -
-                Number(dayjs(dateBirth).format("YYYY"))}
-              {translate("old")}
-            </span>
-          )}
-        </Typography>
-        <Typography>
-          {translate("ageKorean")} :{" "}
-          {isWrongDate() || isDateInvalid() ? (
-            <span>{translate("wrongDate")}</span>
-          ) : (
-            <span>
-              {Number(dayjs(dateAnchor).format("YYYY")) -
-                Number(dayjs(dateBirth).format("YYYY")) +
-                1}
-              {translate("old")}
-            </span>
-          )}
-        </Typography>
+        <Stack spacing={1}>
+          <div>
+            <Typography>{translate("dateBirth")}</Typography>
+            <DesktopDatePicker
+              inputFormat="YYYY/MM/DD"
+              value={dateBirth}
+              onChange={onChangeDateBirth}
+              renderInput={(params) => <TextField {...params} />}
+            />
+          </div>
+          <div>
+            <Typography>{translate("dateAnchor")}</Typography>
+            <DesktopDatePicker
+              inputFormat="YYYY/MM/DD"
+              value={dateAnchor}
+              onChange={onChangeDateAnchor}
+              renderInput={(params) => <TextField {...params} />}
+            />
+          </div>
+          <Typography>
+            {translate("ageInternational")} :{" "}
+            {isWrongDate() || isDateInvalid() ? (
+              <span>{translate("wrongDate")}</span>
+            ) : (
+              <span>
+                {Number(dayjs(dateAnchor).format("YYYY")) -
+                  Number(dayjs(dateBirth).format("YYYY")) +
+                  Number(isBirthdayPassed()) -
+                  1}
+                {translate("old")}
+              </span>
+            )}
+          </Typography>
+          <Typography>
+            {translate("ageYear")} :{" "}
+            {isWrongDate() || isDateInvalid() ? (
+              <span>{translate("wrongDate")}</span>
+            ) : (
+              <span>
+                {Number(dayjs(dateAnchor).format("YYYY")) -
+                  Number(dayjs(dateBirth).format("YYYY"))}
+                {translate("old")}
+              </span>
+            )}
+          </Typography>
+          <Typography>
+            {translate("ageKorean")} :{" "}
+            {isWrongDate() || isDateInvalid() ? (
+              <span>{translate("wrongDate")}</span>
+            ) : (
+              <span>
+                {Number(dayjs(dateAnchor).format("YYYY")) -
+                  Number(dayjs(dateBirth).format("YYYY")) +
+                  1}
+                {translate("old")}
+              </span>
+            )}
+          </Typography>
+        </Stack>
       </Paper>
     </LocalizationProvider>
   );

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Button, Stack } from "@mui/material";
+import { Button, Stack, Typography } from "@mui/material";
 import { Calculator } from "./components/Calculator";
 import { ToggleLanguage } from "./components/ToggleLanguage";
 import logoImageUrl from "./assets/logo.png";
@@ -45,17 +45,17 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <Stack spacing={2} p={2}>
       <ToggleLanguage />
       <h2>{translate("title")}</h2>
-      <section className="container-calculators">
+      <Stack spacing={2}>
         {data.map(({ id }) => (
           <Calculator
             key={`calculator_${id}`}
             onClickRemove={() => onClickRemove(id)}
           />
         ))}
-      </section>
+      </Stack>
       <Button
         variant="contained"
         size="small"
@@ -81,13 +81,13 @@ function App() {
           <TelegramIcon size={32} round={true} />
         </TelegramShareButton>
       </Stack>
-      <p className="made-by">
+      <Typography align="right">
         Made by <img className="logo" src={logoImageUrl} />
         <a href="https://joe-brothers.com/" target="_blank">
           Joe Brothers, Inc.
         </a>
-      </p>
-    </div>
+      </Typography>
+    </Stack>
   );
 }
 
