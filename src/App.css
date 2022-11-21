@@ -31,3 +31,7 @@ input {
   margin-left: 3px;
   margin-right: 4px;
 }
+
+#kakao-link-btn:hover {
+  cursor: pointer;
+}

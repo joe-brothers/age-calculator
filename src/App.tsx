@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Stack, Typography } from "@mui/material";
 import { Calculator } from "./components/Calculator";
+import { ShareButtons } from "./components/ShareButtons";
 import { ToggleLanguage } from "./components/ToggleLanguage";
 import logoImageUrl from "./assets/logo.png";
 import "./App.css";
-import { ShareButtons } from "./components/ShareButtons";
 
 function App() {
   const { t: translate } = useTranslation();

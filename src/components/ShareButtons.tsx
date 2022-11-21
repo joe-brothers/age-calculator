@@ -13,10 +13,14 @@ import {
   TwitterIcon,
   WhatsappIcon,
 } from "next-share";
+import { useTranslation } from "react-i18next";
+import KakaoButton from "../assets/kakao.png";
 
 const SHARE_URL = "https://joe-brothers.com/age-calculator/";
 
 export const ShareButtons = () => {
+  const { t: translate } = useTranslation();
+
   const onClickKakaoTalk = () => {
     window.Kakao.Link.createCustomButton({
       container: "#kakao-link-btn",
@@ -41,9 +45,17 @@ export const ShareButtons = () => {
       <TelegramShareButton url={SHARE_URL}>
         <TelegramIcon size={32} round={true} />
       </TelegramShareButton>
-      <button id="kakao-link-btn" onClick={onClickKakaoTalk}>
-        share
-      </button>
+      <button
+        id="kakao-link-btn"
+        aria-label={translate("shareKakao")}
+        onClick={onClickKakaoTalk}
+        style={{
+          width: 32,
+          height: 32,
+          border: "none",
+          background: `no-repeat center/100% url(${KakaoButton})`,
+        }}
+      />
     </Stack>
   );
 };

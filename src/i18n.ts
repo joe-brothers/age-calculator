@@ -18,6 +18,7 @@ const resources = {
       old: " years old",
       wrongDate: "Wrong Date",
       today: "Today",
+      shareKakao: "Share via KakaoTalk"
     },
   },
   "ko-KR": {
@@ -31,7 +32,8 @@ const resources = {
       add: "추가",
       old: "세",
       wrongDate: "올바른 날짜를 입력해주세요.",
-      today: "오늘"
+      today: "오늘",
+      shareKakao: "카카오톡으로 공유"
     },
   },
 };
