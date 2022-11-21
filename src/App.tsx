@@ -5,22 +5,7 @@ import { Calculator } from "./components/Calculator";
 import { ToggleLanguage } from "./components/ToggleLanguage";
 import logoImageUrl from "./assets/logo.png";
 import "./App.css";
-import {
-  FacebookShareButton,
-  LineShareButton,
-  TelegramShareButton,
-  TwitterShareButton,
-  WhatsappShareButton,
-} from "next-share";
-import {
-  FacebookIcon,
-  LineIcon,
-  TelegramIcon,
-  TwitterIcon,
-  WhatsappIcon,
-} from "next-share";
-
-const SHARE_URL = "https://joe-brothers.com/age-calculator/";
+import { ShareButtons } from "./components/ShareButtons";
 
 function App() {
   const { t: translate } = useTranslation();
@@ -43,13 +28,6 @@ function App() {
     setData(data.filter((val) => val.id !== id));
   };
 
-  const onClickKakaoTalk = () => {
-    window.Kakao.Link.createCustomButton({
-      container: "#kakao-link-btn",
-      templateId: 86175,
-    });
-  };
-
   return (
     <Stack spacing={2} p={2}>
       <ToggleLanguage />
@@ -70,26 +48,7 @@ function App() {
       >
         {translate("add")}
       </Button>
-      <Stack direction="row" spacing={1} justifyContent="center">
-        <TwitterShareButton url={SHARE_URL}>
-          <TwitterIcon size={32} round={true} />
-        </TwitterShareButton>
-        <FacebookShareButton url={SHARE_URL}>
-          <FacebookIcon size={32} round={true} />
-        </FacebookShareButton>
-        <LineShareButton url={SHARE_URL}>
-          <LineIcon size={32} round={true} />
-        </LineShareButton>
-        <WhatsappShareButton url={SHARE_URL}>
-          <WhatsappIcon size={32} round={true} />
-        </WhatsappShareButton>
-        <TelegramShareButton url={SHARE_URL}>
-          <TelegramIcon size={32} round={true} />
-        </TelegramShareButton>
-        <button id="kakao-link-btn" onClick={onClickKakaoTalk}>
-          share
-        </button>
-      </Stack>
+      <ShareButtons />
       <Typography align="right">
         Made by <img className="logo" src={logoImageUrl} />
         <a href="https://joe-brothers.com/" target="_blank">
