@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Stack, Typography } from "@mui/material";
 import { Calculator } from "./components/Calculator";
@@ -43,6 +43,13 @@ function App() {
     setData(data.filter((val) => val.id !== id));
   };
 
+  const onClickKakaoTalk = () => {
+    window.Kakao.Link.createCustomButton({
+      container: "#kakao-link-btn",
+      templateId: 86175,
+    });
+  };
+
   return (
     <Stack spacing={2} p={2}>
       <ToggleLanguage />
@@ -79,6 +86,9 @@ function App() {
         <TelegramShareButton url={SHARE_URL}>
           <TelegramIcon size={32} round={true} />
         </TelegramShareButton>
+        <button id="kakao-link-btn" onClick={onClickKakaoTalk}>
+          share
+        </button>
       </Stack>
       <Typography align="right">
         Made by <img className="logo" src={logoImageUrl} />
