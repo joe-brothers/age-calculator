@@ -31,7 +31,9 @@ function App() {
   return (
     <Stack spacing={2} p={2}>
       <ToggleLanguage />
-      <h2>{translate("title")}</h2>
+      <Typography variant="h6" style={{ fontWeight: 600 }}>
+        {translate("title")}
+      </Typography>
       <Stack spacing={2}>
         {data.map(({ id }) => (
           <Calculator

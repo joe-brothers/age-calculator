@@ -4,7 +4,7 @@ body, p {
 
 body {
   font-family: 'Noto Sans KR', sans-serif;
-  background-color: #e6e6e6;
+  background-color: #e8edfe;
 }
 
 span {
@@ -14,10 +14,16 @@ span {
 a {
   text-decoration: none;
   color: rgb(63, 81, 181);
+  transition: color .25s;
 }
 
 a:hover {
   color: rgb(159, 168, 218);
+}
+
+input {
+  padding: 8px !important;
+  padding-right: 0 !important;
 }
 
 .logo {
