@@ -17,6 +17,7 @@ const resources = {
       add: "Add",
       old: " years old",
       wrongDate: "Wrong Date",
+      today: "Today",
     },
   },
   "ko-KR": {
@@ -30,6 +31,7 @@ const resources = {
       add: "추가",
       old: "세",
       wrongDate: "올바른 날짜를 입력해주세요.",
+      today: "오늘"
     },
   },
 };

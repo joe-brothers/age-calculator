@@ -1,6 +1,13 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Paper, IconButton, TextField, Typography, Stack } from "@mui/material";
+import {
+  Paper,
+  IconButton,
+  TextField,
+  Typography,
+  Stack,
+  Button,
+} from "@mui/material";
 import { Delete } from "@mui/icons-material";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -25,6 +32,9 @@ export const Calculator = ({
   };
   const onChangeDateAnchor = (newValue: Dayjs | null) => {
     setDateAnchor(newValue);
+  };
+  const onClickToday = () => {
+    setDateAnchor(dayjs(new Date()));
   };
 
   const isWrongDate = (): Boolean => {
@@ -61,12 +71,17 @@ export const Calculator = ({
           </div>
           <div>
             <Typography>{translate("dateAnchor")}</Typography>
-            <DesktopDatePicker
-              inputFormat="YYYY/MM/DD"
-              value={dateAnchor}
-              onChange={onChangeDateAnchor}
-              renderInput={(params) => <TextField {...params} />}
-            />
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <DesktopDatePicker
+                inputFormat="YYYY/MM/DD"
+                value={dateAnchor}
+                onChange={onChangeDateAnchor}
+                renderInput={(params) => <TextField {...params} />}
+              />
+              <Button variant="outlined" onClick={onClickToday}>
+                {translate("today")}
+              </Button>
+            </div>
           </div>
           <Typography>
             {translate("ageInternational")} :{" "}
