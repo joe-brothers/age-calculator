@@ -19,7 +19,6 @@ export const ToggleLanguage = () => {
       exclusive
       onChange={handleChange}
       aria-label="language"
-      style={{ marginTop: 70 }}
     >
       <ToggleButton value="ko-KR" aria-label="korean">
         🇰🇷
