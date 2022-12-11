@@ -6,6 +6,7 @@ import { ShareButtons } from "./components/ShareButtons";
 import { ToggleLanguage } from "./components/ToggleLanguage";
 import logoImageUrl from "./assets/logo.png";
 import "./App.css";
+import { TopBar } from "./components/TopBar";
 
 function App() {
   const { t: translate } = useTranslation();
@@ -30,6 +31,7 @@ function App() {
 
   return (
     <Stack spacing={2} p={2}>
+      <TopBar />
       <ToggleLanguage />
       <Typography variant="h6" style={{ fontWeight: 600 }}>
         {translate("title")}
