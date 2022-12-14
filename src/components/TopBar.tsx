@@ -14,7 +14,7 @@ import { Menu as MenuIcon } from "@mui/icons-material";
 
 export const TopBar = () => {
   const pages: { [key: string]: () => void }[] = [
-    { Games: () => (window.location.href = "https://joe-brothers.com/#/games/") },
+    { Games: () => (window.location.href = "https://joe-brothers.com/#/game/") },
     { Utilities: () => (window.location.href = "https://joe-brothers.com/#/utility/") },
     { Blog: () => (window.location.href = "https://joe-brothers.com/blog/") },
     { Company: () => (window.location.href = "https://joe-brothers.com/#/company/") },
